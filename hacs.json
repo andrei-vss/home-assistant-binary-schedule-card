@@ -1,0 +1,6 @@
+{
+  "name": "Home Assistant Binary Schedule Card",
+  "content_in_root": true,
+  "filename": "home-assistant-binary-schedule-card.js",
+  "render_readme": true
+}
