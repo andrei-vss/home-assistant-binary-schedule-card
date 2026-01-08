@@ -3,5 +3,8 @@
   "content_in_root": false,
   "filename": "home-assistant-binary-schedule-card.js",
   "render_readme": true,
-  "type": "lovelace"
+  "type": "lovelace",
+  "minimum_hacs_version": "1.33.0",
+  "minimum_ha_version": "2022.6.0",
+  "hide_default_branch": true
 }

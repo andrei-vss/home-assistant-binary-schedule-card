@@ -1,3 +1,6 @@
+const CARD_VERSION = "1.0.0";
+console.info(`BinaryScheduleCard v${CARD_VERSION}`);
+
 class BinaryScheduleCard extends HTMLElement {
   setConfig(config) {
     if (!config.entity) {
@@ -23,7 +26,6 @@ class BinaryScheduleCard extends HTMLElement {
       console.warn(`BinaryScheduleCard: invalid or missing state for ${entityId}. Setting default 168 zeros.`);
       binary = "0".repeat(168);
 
-      // Set default value in Home Assistant
       this._hass.callService("input_text", "set_value", {
         entity_id: entityId,
         value: binary,
@@ -64,10 +66,10 @@ class BinaryScheduleCard extends HTMLElement {
         display: flex;
         flex-direction: column;
         gap: 4px;
-        margin-right: 8px; 
-        margin-bottom: 8px; 
-        margin-left: 4px; 
-        margin-top: 8px; 
+        margin-right: 8px;
+        margin-bottom: 8px;
+        margin-left: 4px;
+        margin-top: 8px;
       }
 
       .binary-row {
@@ -117,9 +119,8 @@ class BinaryScheduleCard extends HTMLElement {
     const container = document.createElement("div");
     container.className = "binary-table";
 
-    const days = ["L", "M", "Mi", "J", "V", "S", "D"];
+    const days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
 
-    // Header row
     const headerRow = document.createElement("div");
     headerRow.className = "binary-row";
 
@@ -136,7 +137,6 @@ class BinaryScheduleCard extends HTMLElement {
 
     container.appendChild(headerRow);
 
-    // 24 rows (hours)
     for (let hour = 0; hour < 24; hour++) {
       const row = document.createElement("div");
       row.className = "binary-row";
@@ -161,9 +161,9 @@ class BinaryScheduleCard extends HTMLElement {
 
       container.appendChild(row);
     }
-    
+
     card.appendChild(container);
-    // Clear All button
+
     const clearBtn = document.createElement("div");
     clearBtn.className = "binary-clear-all";
     clearBtn.textContent = "Clear All";
@@ -199,11 +199,10 @@ class BinaryScheduleCard extends HTMLElement {
 
 customElements.define("binary-schedule-card", BinaryScheduleCard);
 
-// Make card appear in Lovelace editor card picker:
 window.customCards = window.customCards || [];
 window.customCards.push({
   type: "binary-schedule-card",
   name: "binary Schedule Card",
   preview: true,
-  description: "Weekly schedule grid — toggle hours for each day",
+  description: "Weekly schedule grid — toggle hours for each day and hour",
 });
