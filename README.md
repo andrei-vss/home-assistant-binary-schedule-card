@@ -39,6 +39,3 @@ entity: input_text.fh_schedule_binary_input
 - Must be an input_text;
 - Must contain 168 characters;
 - Only "0" and "1" are used;
-
-## License
-### MIT
