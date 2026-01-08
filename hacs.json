@@ -1,6 +1,7 @@
 {
   "name": "Home Assistant Binary Schedule Card",
-  "content_in_root": true,
+  "content_in_root": false,
   "filename": "home-assistant-binary-schedule-card.js",
-  "render_readme": true
+  "render_readme": true,
+  "type": "lovelace"
 }
